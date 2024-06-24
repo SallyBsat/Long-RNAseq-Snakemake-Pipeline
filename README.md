@@ -40,6 +40,8 @@ Example on how the to fill the `units.tsv` file:
 
 * Second, create a snakemake environment within Conda/Mamba and activate it.
 
+**The below commands should all be ran from the workflow subdirectory where the snakefile is present.** 
+
 * Third, create a results folder to save the snakemake.log file into.
 **NOTE:** This command should be only done when there is no results folder generated yet.
 

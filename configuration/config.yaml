@@ -1,0 +1,9 @@
+#path to units where the path to fastq files should be added
+
+units:
+  ../configuration/units.tsv
+
+
+#Path to the transcriptome reference for salmon indexing that should be in gz format
+transcriptome:
+ ../resources/gencode.vM1.pc_transcripts.fa.gz

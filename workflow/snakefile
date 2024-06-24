@@ -1,0 +1,22 @@
+import yaml
+import pandas as pd
+from snakemake.utils import min_version
+min_version("8.14.0")
+
+configfile: "../configuration/config.yaml"
+
+include: "rules/common.smk"
+include: "rules/qc.smk"
+include: "rules/trim.smk"
+include: "rules/salmon.smk"
+
+read=["1", "2"]
+sample = units.index
+#extension = ["html", "zip"]
+
+rule all:
+    input:
+        expand("results/cutAdapt/{sample}-trimmed_{read}.fastq.gz", sample = sample, read = read),
+        expand("results/qc/{sample}-trimmed_{read}_fastqc.html", sample=sample, read=read),
+        expand("results/qc/{sample}-trimmed_{read}_fastqc.zip", sample=sample, read=read),
+        expand("results/salmon_quant/{sample}_quant", sample=sample)
